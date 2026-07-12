@@ -1,16 +1,20 @@
-const enterBtn=document.getElementById('enterBtn');
-const cover=document.getElementById('cover');
-const party=document.getElementById('party');
-const music=document.getElementById('music');
+const enterBtn = document.getElementById('enterBtn');
+const cover = document.getElementById('cover');
+const party = document.getElementById('party');
+const music = document.getElementById('music');
 
-enterBtn.addEventListener('click',async()=>{
-  try{
-    music.currentTime=74;
-    music.volume=.82;
+enterBtn.addEventListener('click', async () => {
+  try {
+    music.currentTime = 74;
+    music.volume = 0.82;
     await music.play();
-  }catch(e){
-    music.currentTime=74;
+  } catch (error) {
+    music.currentTime = 74;
   }
-  cover.classList.add('fade-out');
-  setTimeout(()=>party.scrollIntoView({behavior:'smooth'}),360);
+
+  party.classList.add('show');
+
+  requestAnimationFrame(() => {
+    cover.classList.add('fade-out');
+  });
 });

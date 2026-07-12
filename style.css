@@ -44,3 +44,45 @@ body{overflow-x:hidden}
   .cover-content{padding-bottom:38px}
   .cat-1{width:110px;height:110px}.cat-2{width:145px;height:145px}.cat-3{width:85px;height:85px}.cat-4{width:105px;height:105px}.cat-5{width:135px;height:135px}.cat-6{width:100px;height:100px}.cat-7{width:85px;height:85px}.cat-8{width:120px;height:120px}
 }
+/* TRANSICIÓN CORREGIDA */
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.cover {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1.8s ease, visibility 1.8s ease;
+}
+
+.cover.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.party {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.025);
+  pointer-events: none;
+  transition:
+    opacity 1.8s ease,
+    visibility 1.8s ease,
+    transform 2.2s ease;
+}
+
+.party.show {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  pointer-events: auto;
+  overflow-y: auto;
+}
